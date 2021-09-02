@@ -6,12 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-ARCHIVE-ASSIGNMENT6</title>
+    <!-- css style  -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+        crossorigin="anonymous">
+
 </head>
 
 <body>
+    <!-- Search button -->
+    <section class="my-3">
+        <div class="d-flex w-75 mx-auto ">
+            <input id="input-btn" type="text" class="form-control"
+                placeholder="Find your book name"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <button onclick="buttonSearch()" class="btn btn-primary"
+                id="button-search">Search</button>
+        </div>
 
+    </section>
+    <!-- Show website results all number count -->
+    <div id="all-card-find" class="my-2">
 
+    </div>
+    <!-- Show website results  -->
+    <section class="my-3">
+        <div id="result-section" class="row row-cols-4  g-4">
+
+        </div>
+
+    </section>
+
+    <!-- javascript link added  -->
     <script src="js/index.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
