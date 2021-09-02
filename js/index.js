@@ -2,12 +2,22 @@
 
 const searchInput = document.getElementById('input-btn');
 const searchRejult = document.getElementById('button-search');
+const errorMessage = document.getElementById('error-message');
+const errorMessage2 = document.getElementById('error-donot-card');
 const allCardFind = document.getElementById('all-card-find');
 const resultSearch = document.getElementById('result-section');
 
 const buttonSearch = () => {
     const searchIn = searchInput.value;
-    searchInput.value = '';
+    // searchInput.value = '';
+    /*Error message */
+    if (searchIn === '') {
+        errorMessage.innerHTML = `<h1 class="text-center">You not a results search</h1>`;
+        return;
+    }
+    else {
+        errorMessage.innerHTML = '';
+    }
 
     // load data
     const url = ` https://openlibrary.org/search.json?q=${searchIn}`;
@@ -19,17 +29,39 @@ const buttonSearch = () => {
 }
 
 const searchShow = (books) => {
+    // filter array 
+    const filtered = books.filter(book => book.cover_i !== undefined && book.author_name !== undefined && book.publisher !== undefined && book.title !== undefined);
+    // Error message 
+
+
+    if (filtered.length === 0) {
+
+        document.getElementById('error-card').innerHTML = `<h4 class='text-center'>Results Not Found </h4>`;
+        allCardFind.textContent = "";
+
+    }
+    else {
+        document.getElementById('error-card').innerHTML = ``;
+    }
     /*-------Clear dom------*/
     resultSearch.innerHTML = '';
-    allCardFind.innerHTML = '';
+
 
     /*----Show website results all number count---*/
+    allCardFind.textContent = "";
+
     const div2 = document.createElement('div');
     div2.classList.add('text-center')
     div2.innerHTML = `
-        <h4>About ${books.length} results (Website show )</h4>
+        <h4>About ${books.length} results show . finded count Crad ${filtered.length}</h4>
         `;
+
     allCardFind.appendChild(div2);
+
+
+
+
+
 
     /*----Show website results ---*/
     books.forEach(book => {
